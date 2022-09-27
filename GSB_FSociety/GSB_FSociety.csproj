@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conflit.cs" />
     <Compile Include="Etat.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
