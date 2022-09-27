@@ -9,11 +9,9 @@ namespace GSB_FSociety
     internal class Conflit
     {
 /*
- * ligne1
- * l2
- * l3
- * l4
- * l5
+ * l3yann
+ * l4yann
+ * l5yann
  * l6
  */
     }
