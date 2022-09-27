@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace GSB_FSociety
 {
-    public partial class FM1 : Form
+    public partial class FM1_Login : Form
     {
-        public FM1()
+        public FM1_Login()
         {
             InitializeComponent();
         }
-        private void FM1_Load(object sender, EventArgs e)
+
+        private void FM1_Login_Load(object sender, EventArgs e)
         {
-            FM1_Login fm1Login = new FM1_Login();
-            fm1Login.ShowDialog();
-            this.Close();
+
         }
     }
 }

@@ -72,6 +72,18 @@
     <Compile Include="FM1.Designer.cs">
       <DependentUpon>FM1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FM1_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FM1_Login.Designer.cs">
+      <DependentUpon>FM1_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FM1_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FM1_Menu.Designer.cs">
+      <DependentUpon>FM1_Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FM2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +162,15 @@
     <Compile Include="Visiteur.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FM1.resx">
+      <DependentUpon>FM1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FM1_Login.resx">
+      <DependentUpon>FM1_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FM1_Menu.resx">
+      <DependentUpon>FM1_Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
     </EmbeddedResource>
