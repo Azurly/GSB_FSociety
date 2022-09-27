@@ -26,18 +26,21 @@ namespace GSB_FSociety
         {
             FM1 fM1 = new FM1();
             fM1.ShowDialog();
+            this.Close();
         }
 
         private void buttonMission2_Click(object sender, EventArgs e)
         {
             FM2 fM2 = new FM2();
             fM2.ShowDialog();
+            this.Close();
         }
 
         private void buttonMission3_Click(object sender, EventArgs e)
         {
             FM3 fM3 = new FM3();
             fM3.ShowDialog();
+            this.Close();
         }
     }
 }

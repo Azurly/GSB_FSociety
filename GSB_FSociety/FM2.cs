@@ -16,15 +16,5 @@ namespace GSB_FSociety
         {
             InitializeComponent();
         }
-
-        private void FM2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
