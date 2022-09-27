@@ -150,6 +150,9 @@
     <Compile Include="Visiteur.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FM3.resx">
+      <DependentUpon>FM3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
     </EmbeddedResource>
