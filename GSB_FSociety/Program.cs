@@ -16,6 +16,8 @@ namespace GSB_FSociety
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            ModelGSB.init();
+            
             Application.Run(new FMenu());
         }
     }

@@ -79,6 +79,12 @@
     <Compile Include="FM2.Designer.cs">
       <DependentUpon>FM2.cs</DependentUpon>
     </Compile>
+    <Compile Include="FM2Rapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FM2Rapport.Designer.cs">
+      <DependentUpon>FM2Rapport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FM3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     <Compile Include="Visiteur.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FM2.resx">
+      <DependentUpon>FM2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FM2Rapport.resx">
+      <DependentUpon>FM2Rapport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
     </EmbeddedResource>
