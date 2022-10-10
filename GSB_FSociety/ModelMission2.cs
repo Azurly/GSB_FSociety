@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace GSB_FSociety
 {
-    internal class ModelMission2
+    public static class ModelMission2
     {
-        private static Object utilisateurConnecte;
+        private static connnectGSBFSociety maConnexion;
+
+        public static void init()
+        {
+            maConnexion = new connnectGSBFSociety();
+        }
+
     }
 }
