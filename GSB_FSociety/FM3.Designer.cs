@@ -29,15 +29,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.titre = new System.Windows.Forms.Label();
-            this.bsTest = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.filtre = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btNew = new System.Windows.Forms.Button();
             this.btEdit = new System.Windows.Forms.Button();
             this.btDelet = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.bsTest)).BeginInit();
+            this.bsFicheRemboursement = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFicheRemboursement)).BeginInit();
             this.SuspendLayout();
             // 
             // titre
@@ -56,7 +56,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.bsTest;
+            this.dataGridView1.DataSource = this.bsFicheRemboursement;
             this.dataGridView1.Location = new System.Drawing.Point(12, 128);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -124,8 +124,9 @@
             this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "FM3";
             this.Text = "FM3";
-            ((System.ComponentModel.ISupportInitialize)(this.bsTest)).EndInit();
+            this.Load += new System.EventHandler(this.FM3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFicheRemboursement)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,7 +135,7 @@
         #endregion
 
         private System.Windows.Forms.Label titre;
-        private System.Windows.Forms.BindingSource bsTest;
+        private System.Windows.Forms.BindingSource bsFicheRemboursement;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label filtre;
         private System.Windows.Forms.ComboBox comboBox1;

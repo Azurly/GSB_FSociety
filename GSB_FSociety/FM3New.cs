@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace GSB_FSociety
 {
-    public partial class FM3 : Form
+    public partial class FM3New : Form
     {
-        public FM3()
+        public FM3New()
         {
             InitializeComponent();
-        }
-
-        private void FM3_Load(object sender, EventArgs e)
-        {
-            //bsFicheRemboursement.DataSource = ModelGSB.GetListeFraisForfait();
-
         }
     }
 }

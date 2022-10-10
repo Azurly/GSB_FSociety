@@ -7,10 +7,10 @@
       <Diagram DiagramId="bbc336d9e99f409d9e0a8868d3743d15" Name="Diagram1" ZoomLevel="89">
         <EntityTypeShape EntityType="mdlGSBSociety.Etat" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="mdlGSBSociety.FAMILLE" Width="1.5" PointX="4.125" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlGSBSociety.fichefrais" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlGSBSociety.FraisForfait" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlGSBSociety.fichefrais" Width="1.5" PointX="13.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlGSBSociety.FraisForfait" Width="1.5" PointX="13.375" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="mdlGSBSociety.Laboratoire" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mdlGSBSociety.LigneFraisForfait" Width="1.5" PointX="10" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mdlGSBSociety.LigneFraisForfait" Width="1.5" PointX="13" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="mdlGSBSociety.LigneFraisHorsForfait" Width="1.5" PointX="7.5" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="mdlGSBSociety.MEDECIN" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="mdlGSBSociety.MEDICAMENT" Width="1.5" PointX="9.5" PointY="12.125" IsExpanded="true" />

@@ -85,6 +85,12 @@
     <Compile Include="FM3.Designer.cs">
       <DependentUpon>FM3.cs</DependentUpon>
     </Compile>
+    <Compile Include="FM3New.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FM3New.Designer.cs">
+      <DependentUpon>FM3New.cs</DependentUpon>
+    </Compile>
     <Compile Include="FraisForfait.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
@@ -153,6 +159,9 @@
     </Compile>
     <EmbeddedResource Include="FM3.resx">
       <DependentUpon>FM3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FM3New.resx">
+      <DependentUpon>FM3New.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
