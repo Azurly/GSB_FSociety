@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conflit.cs" />
     <Compile Include="Etat.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
@@ -72,23 +73,17 @@
     <Compile Include="FM1.Designer.cs">
       <DependentUpon>FM1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FM1_Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FM1_Login.Designer.cs">
-      <DependentUpon>FM1_Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FM1_Menu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FM1_Menu.Designer.cs">
-      <DependentUpon>FM1_Menu.cs</DependentUpon>
-    </Compile>
     <Compile Include="FM2.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FM2.Designer.cs">
       <DependentUpon>FM2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FM2Rapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FM2Rapport.Designer.cs">
+      <DependentUpon>FM2Rapport.cs</DependentUpon>
     </Compile>
     <Compile Include="FM3.cs">
       <SubType>Form</SubType>
@@ -162,14 +157,11 @@
     <Compile Include="Visiteur.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FM1.resx">
-      <DependentUpon>FM1.cs</DependentUpon>
+    <EmbeddedResource Include="FM2.resx">
+      <DependentUpon>FM2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FM1_Login.resx">
-      <DependentUpon>FM1_Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FM1_Menu.resx">
-      <DependentUpon>FM1_Menu.cs</DependentUpon>
+    <EmbeddedResource Include="FM2Rapport.resx">
+      <DependentUpon>FM2Rapport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>

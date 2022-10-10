@@ -16,5 +16,11 @@ namespace GSB_FSociety
         {
             InitializeComponent();
         }
+
+        private void RapportTSMI_Click(object sender, EventArgs e)
+        {
+            FM2Rapport fm2r = new FM2Rapport();
+            fm2r.ShowDialog();
+        }
     }
 }
