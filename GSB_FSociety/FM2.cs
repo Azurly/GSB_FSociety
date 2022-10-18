@@ -22,5 +22,17 @@ namespace GSB_FSociety
             FM2Rapport fm2r = new FM2Rapport();
             fm2r.ShowDialog();
         }
+
+        private void FM2_Load(object sender, EventArgs e)
+        {
+            bsRapport.DataSource = ModelGSB.GetListeRapport();
+            dgvRapport.DataSource = bsRapport;
+        }
+
+        private void btnAjouterRapport_Click(object sender, EventArgs e)
+        {
+            FM2Rapport fm2r = new FM2Rapport();
+            fm2r.ShowDialog();
+        }
     }
 }
