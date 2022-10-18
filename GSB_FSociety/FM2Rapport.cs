@@ -25,7 +25,7 @@ namespace GSB_FSociety
             cbxMedecin.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxMedecin.ValueMember = "idMedecin";
             cbxMedecin.DisplayMember = "nom";
-
+            
 
             bsMotif.DataSource = ModelGSB.GetListeMotif();
             cbxMotif.DataSource = bsMotif;
