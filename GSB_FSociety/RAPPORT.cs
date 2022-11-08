@@ -26,6 +26,8 @@ namespace GSB_FSociety
         public string bilan { get; set; }
         public string idVisiteur { get; set; }
         public int idMedecin { get; set; }
+        public Nullable<int> niveauConfiance { get; set; }
+        public string nomRemplacent { get; set; }
     
         public virtual MEDECIN MEDECIN { get; set; }
         public virtual MOTIF MOTIF { get; set; }

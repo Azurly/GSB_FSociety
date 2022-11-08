@@ -96,5 +96,6 @@ namespace GSB_FSociety
         {
             return maConnexion.Visiteur.ToList();
         }
+
     }
 }

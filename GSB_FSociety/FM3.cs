@@ -20,7 +20,13 @@ namespace GSB_FSociety
         private void FM3_Load(object sender, EventArgs e)
         {
             bsFicheRemboursement.DataSource = ModelGSB.GetListeFicheFrais();
+            dgvFicheForfait.DataSource = bsFicheRemboursement;
+        }
 
+        private void btNew_Click(object sender, EventArgs e)
+        {
+            FM3New fm3n = new FM3New();
+            fm3n.ShowDialog();
         }
     }
 }

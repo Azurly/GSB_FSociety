@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mdlGSBSociety.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="mdlGSBSociety.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Etat">
           <Key>
             <PropertyRef Name="id" />
@@ -37,7 +37,9 @@
           </Key>
           <Property Name="id" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="libelle" Type="char" MaxLength="20" />
-          <Property Name="montant" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="montant_unitaire" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="quantité" Type="int" />
+          <Property Name="montant_total" Type="float" />
         </EntityType>
         <EntityType Name="Laboratoire">
           <Key>
@@ -117,6 +119,8 @@
           <Property Name="bilan" Type="varchar" MaxLength="64" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="idMedecin" Type="int" Nullable="false" />
+          <Property Name="niveauConfiance" Type="int" />
+          <Property Name="nomRemplacent" Type="varchar" MaxLength="64" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -476,8 +480,7 @@
             <End Role="RAPPORT" EntitySet="RAPPORT" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="mdlGSBSociety" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -521,6 +524,9 @@
           <Property Name="libelle" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="montant" Type="Decimal" Precision="5" Scale="2" />
           <NavigationProperty Name="LigneFraisForfait" Relationship="Self.FK__LigneFrai__idFra__286302EC" FromRole="FraisForfait" ToRole="LigneFraisForfait" />
+          <Property Name="quantité" Type="Int32" />
+          <Property Name="montant_unitaire" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="montant_total" Type="Double" />
         </EntityType>
         <EntityType Name="Laboratoire">
           <Key>
@@ -615,6 +621,8 @@
           <NavigationProperty Name="MOTIF" Relationship="Self.rapport_fk3" FromRole="RAPPORT" ToRole="MOTIF" />
           <NavigationProperty Name="OFFRIR" Relationship="Self.offrir_fk1" FromRole="RAPPORT" ToRole="OFFRIR" />
           <NavigationProperty Name="Visiteur" Relationship="Self.rapport_fk1" FromRole="RAPPORT" ToRole="Visiteur" />
+          <Property Name="niveauConfiance" Type="Int32" />
+          <Property Name="nomRemplacent" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -990,9 +998,11 @@
           <EntitySetMapping Name="FraisForfait">
             <EntityTypeMapping TypeName="mdlGSBSociety.FraisForfait">
               <MappingFragment StoreEntitySet="FraisForfait">
+                <ScalarProperty Name="montant_total" ColumnName="montant_total" />
+                <ScalarProperty Name="montant_unitaire" ColumnName="montant_unitaire" />
+                <ScalarProperty Name="quantité" ColumnName="quantité" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="libelle" ColumnName="libelle" />
-                <ScalarProperty Name="montant" ColumnName="montant" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1071,6 +1081,8 @@
           <EntitySetMapping Name="RAPPORT">
             <EntityTypeMapping TypeName="mdlGSBSociety.RAPPORT">
               <MappingFragment StoreEntitySet="RAPPORT">
+                <ScalarProperty Name="nomRemplacent" ColumnName="nomRemplacent" />
+                <ScalarProperty Name="niveauConfiance" ColumnName="niveauConfiance" />
                 <ScalarProperty Name="idRapport" ColumnName="idRapport" />
                 <ScalarProperty Name="dateRapport" ColumnName="dateRapport" />
                 <ScalarProperty Name="idMotif" ColumnName="idMotif" />

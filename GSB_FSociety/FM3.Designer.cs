@@ -29,14 +29,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.titre = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFicheForfait = new System.Windows.Forms.DataGridView();
+            this.bsFicheRemboursement = new System.Windows.Forms.BindingSource(this.components);
             this.filtre = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btNew = new System.Windows.Forms.Button();
             this.btEdit = new System.Windows.Forms.Button();
             this.btDelet = new System.Windows.Forms.Button();
-            this.bsFicheRemboursement = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFicheForfait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFicheRemboursement)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,18 +50,18 @@
             this.titre.TabIndex = 0;
             this.titre.Text = "Gestion des remboursements de frais";
             // 
-            // dataGridView1
+            // dgvFicheForfait
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.bsFicheRemboursement;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 128);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(760, 292);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvFicheForfait.AllowUserToAddRows = false;
+            this.dgvFicheForfait.AllowUserToDeleteRows = false;
+            this.dgvFicheForfait.AutoGenerateColumns = false;
+            this.dgvFicheForfait.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFicheForfait.DataSource = this.bsFicheRemboursement;
+            this.dgvFicheForfait.Location = new System.Drawing.Point(12, 128);
+            this.dgvFicheForfait.Name = "dgvFicheForfait";
+            this.dgvFicheForfait.ReadOnly = true;
+            this.dgvFicheForfait.Size = new System.Drawing.Size(760, 292);
+            this.dgvFicheForfait.TabIndex = 1;
             // 
             // filtre
             // 
@@ -89,6 +89,7 @@
             this.btNew.TabIndex = 5;
             this.btNew.Text = "New";
             this.btNew.UseVisualStyleBackColor = true;
+            this.btNew.Click += new System.EventHandler(this.btNew_Click);
             // 
             // btEdit
             // 
@@ -118,14 +119,14 @@
             this.Controls.Add(this.btNew);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.filtre);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFicheForfait);
             this.Controls.Add(this.titre);
             this.MaximumSize = new System.Drawing.Size(800, 500);
             this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "FM3";
             this.Text = "FM3";
             this.Load += new System.EventHandler(this.FM3_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFicheForfait)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFicheRemboursement)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -136,7 +137,7 @@
 
         private System.Windows.Forms.Label titre;
         private System.Windows.Forms.BindingSource bsFicheRemboursement;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFicheForfait;
         private System.Windows.Forms.Label filtre;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btNew;
