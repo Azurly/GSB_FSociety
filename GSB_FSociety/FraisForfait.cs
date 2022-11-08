@@ -23,6 +23,9 @@ namespace GSB_FSociety
         public string id { get; set; }
         public string libelle { get; set; }
         public Nullable<decimal> montant { get; set; }
+        public Nullable<int> quantité { get; set; }
+        public Nullable<decimal> montant_unitaire { get; set; }
+        public Nullable<double> montant_total { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LigneFraisForfait> LigneFraisForfait { get; set; }

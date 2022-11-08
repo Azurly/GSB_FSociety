@@ -18,6 +18,7 @@ namespace GSB_FSociety
         public RAPPORT()
         {
             this.OFFRIR = new HashSet<OFFRIR>();
+            this.PRESENTER = new HashSet<PRESENTER>();
         }
     
         public int idRapport { get; set; }
@@ -26,11 +27,15 @@ namespace GSB_FSociety
         public string bilan { get; set; }
         public string idVisiteur { get; set; }
         public int idMedecin { get; set; }
+        public Nullable<int> niveauConfiance { get; set; }
+        public string nomRemplacent { get; set; }
     
         public virtual MEDECIN MEDECIN { get; set; }
         public virtual MOTIF MOTIF { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OFFRIR> OFFRIR { get; set; }
         public virtual Visiteur Visiteur { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRESENTER> PRESENTER { get; set; }
     }
 }

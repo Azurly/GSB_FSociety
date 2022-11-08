@@ -85,11 +85,23 @@
     <Compile Include="FM2Rapport.Designer.cs">
       <DependentUpon>FM2Rapport.cs</DependentUpon>
     </Compile>
+    <Compile Include="FM2ShowRapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FM2ShowRapport.Designer.cs">
+      <DependentUpon>FM2ShowRapport.cs</DependentUpon>
+    </Compile>
     <Compile Include="FM3.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FM3.Designer.cs">
       <DependentUpon>FM3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConnexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConnexion.Designer.cs">
+      <DependentUpon>FormConnexion.cs</DependentUpon>
     </Compile>
     <Compile Include="FraisForfait.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
@@ -140,6 +152,9 @@
     <Compile Include="OFFRIR.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
+    <Compile Include="PRESENTER.cs">
+      <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RAPPORT.cs">
@@ -163,8 +178,14 @@
     <EmbeddedResource Include="FM2Rapport.resx">
       <DependentUpon>FM2Rapport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FM2ShowRapport.resx">
+      <DependentUpon>FM2ShowRapport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FMenu.resx">
       <DependentUpon>FMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConnexion.resx">
+      <DependentUpon>FormConnexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

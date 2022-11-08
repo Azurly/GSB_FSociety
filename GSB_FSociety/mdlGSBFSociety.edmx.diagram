@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bbc336d9e99f409d9e0a8868d3743d15" Name="Diagram1" ZoomLevel="93">
+      <Diagram DiagramId="bbc336d9e99f409d9e0a8868d3743d15" Name="Diagram1" ZoomLevel="79">
         <EntityTypeShape EntityType="mdlGSBSociety.Etat" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="mdlGSBSociety.FAMILLE" Width="1.5" PointX="12.375" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="mdlGSBSociety.fichefrais" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
@@ -38,6 +38,9 @@
         <AssociationConnector Association="mdlGSBSociety.FK_VISITEUR" ManuallyRouted="false" />
         <AssociationConnector Association="mdlGSBSociety.FK_VISITEURSECTEUR" ManuallyRouted="false" />
         <AssociationConnector Association="mdlGSBSociety.Travailler" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="mdlGSBSociety.PRESENTER" Width="1.5" PointX="18.5" PointY="11.75" />
+        <AssociationConnector Association="mdlGSBSociety.presenter_fk2" />
+        <AssociationConnector Association="mdlGSBSociety.presenter_fk1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

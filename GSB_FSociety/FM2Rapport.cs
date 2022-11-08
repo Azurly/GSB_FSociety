@@ -37,7 +37,8 @@ namespace GSB_FSociety
 
             string[] columns = { "id", "nom commerciale", "id famille", "effets", "contre-indications", "composition", "qte"};
             for(int i=0; i<columns.Length; i++) { dgvMedicamentPresenter.Columns.Add(columns[i], columns[i]); }
-
+            for(int i=0; i<columns.Length; i++) { dgvMedicamentOffrir.Columns.Add(columns[i], columns[i]); }
+            
  
         }
 
@@ -51,7 +52,6 @@ namespace GSB_FSociety
 
             List<MEDICAMENT> lm = new List<MEDICAMENT>();
             dgvMedicamentPresenter.Rows[0].Cells[0].Value = "test";
-            lbltest.Text = dgvMedicamentPresenter.Rows[0].Cells[0].Value.ToString();
 
             foreach(DataGridViewRow row in dgvMedicamentPresenter.Rows){
 
@@ -82,6 +82,11 @@ namespace GSB_FSociety
         {
             if (checkBoxRemplacent.Checked){ tbRemplacent.Enabled = true; }
             else{ tbRemplacent.Enabled = false; }
+        }
+
+        private void trackBarConfiance_ValueChanged(object sender, EventArgs e)
+        {
+            lblConfiance.Text = trackBarConfiance.Value.ToString();
         }
     }
 }

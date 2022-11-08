@@ -30,8 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tbRemplacent = new System.Windows.Forms.TextBox();
+            this.checkBoxRemplacent = new System.Windows.Forms.CheckBox();
+            this.tcMedicament = new System.Windows.Forms.TabControl();
+            this.tpPresenter = new System.Windows.Forms.TabPage();
             this.dgvMedicamentPresenter = new System.Windows.Forms.DataGridView();
+            this.tpOffrir = new System.Windows.Forms.TabPage();
+            this.dgvMedicamentOffrir = new System.Windows.Forms.DataGridView();
+            this.lblConfiance = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.trackBarConfiance = new System.Windows.Forms.TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxMedecin = new System.Windows.Forms.ComboBox();
@@ -43,38 +52,35 @@
             this.DtpDate = new System.Windows.Forms.DateTimePicker();
             this.bsMedecin = new System.Windows.Forms.BindingSource(this.components);
             this.bsMotif = new System.Windows.Forms.BindingSource(this.components);
-            this.lbltest = new System.Windows.Forms.Label();
-            this.trackBarConfiance = new System.Windows.Forms.TrackBar();
-            this.lblConfiance = new System.Windows.Forms.Label();
-            this.lblConfianceValue = new System.Windows.Forms.Label();
-            this.tcMedicament = new System.Windows.Forms.TabControl();
-            this.tpPresenter = new System.Windows.Forms.TabPage();
-            this.tpOffrir = new System.Windows.Forms.TabPage();
-            this.checkBoxRemplacent = new System.Windows.Forms.CheckBox();
-            this.tbRemplacent = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dgvMedicamentOffrir = new System.Windows.Forms.DataGridView();
+            this.btnAjouter = new System.Windows.Forms.Button();
+            this.BtnSupprimer = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentPresenter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMedecin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMotif)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarConfiance)).BeginInit();
             this.tcMedicament.SuspendLayout();
             this.tpPresenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentPresenter)).BeginInit();
             this.tpOffrir.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentOffrir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarConfiance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMedecin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMotif)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btnReset);
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.tbRemplacent);
             this.panel1.Controls.Add(this.checkBoxRemplacent);
             this.panel1.Controls.Add(this.tcMedicament);
-            this.panel1.Controls.Add(this.lblConfianceValue);
             this.panel1.Controls.Add(this.lblConfiance);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.trackBarConfiance);
-            this.panel1.Controls.Add(this.lbltest);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -90,14 +96,47 @@
             this.panel1.Size = new System.Drawing.Size(1114, 540);
             this.panel1.TabIndex = 4;
             // 
-            // label4
+            // tbRemplacent
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(361, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Medicament :";
+            this.tbRemplacent.Location = new System.Drawing.Point(106, 84);
+            this.tbRemplacent.Name = "tbRemplacent";
+            this.tbRemplacent.Size = new System.Drawing.Size(200, 20);
+            this.tbRemplacent.TabIndex = 20;
+            // 
+            // checkBoxRemplacent
+            // 
+            this.checkBoxRemplacent.AutoSize = true;
+            this.checkBoxRemplacent.Location = new System.Drawing.Point(17, 87);
+            this.checkBoxRemplacent.Name = "checkBoxRemplacent";
+            this.checkBoxRemplacent.Size = new System.Drawing.Size(89, 17);
+            this.checkBoxRemplacent.TabIndex = 0;
+            this.checkBoxRemplacent.Text = "Remplacent :";
+            this.checkBoxRemplacent.UseVisualStyleBackColor = true;
+            this.checkBoxRemplacent.CheckedChanged += new System.EventHandler(this.checkBoxRemplacent_CheckedChanged);
+            // 
+            // tcMedicament
+            // 
+            this.tcMedicament.Controls.Add(this.tpPresenter);
+            this.tcMedicament.Controls.Add(this.tpOffrir);
+            this.tcMedicament.Location = new System.Drawing.Point(443, 3);
+            this.tcMedicament.Name = "tcMedicament";
+            this.tcMedicament.SelectedIndex = 0;
+            this.tcMedicament.Size = new System.Drawing.Size(668, 390);
+            this.tcMedicament.TabIndex = 19;
+            // 
+            // tpPresenter
+            // 
+            this.tpPresenter.Controls.Add(this.btnModifier);
+            this.tpPresenter.Controls.Add(this.BtnSupprimer);
+            this.tpPresenter.Controls.Add(this.btnAjouter);
+            this.tpPresenter.Controls.Add(this.dgvMedicamentPresenter);
+            this.tpPresenter.Location = new System.Drawing.Point(4, 22);
+            this.tpPresenter.Name = "tpPresenter";
+            this.tpPresenter.Padding = new System.Windows.Forms.Padding(3);
+            this.tpPresenter.Size = new System.Drawing.Size(660, 364);
+            this.tpPresenter.TabIndex = 0;
+            this.tpPresenter.Text = "Présenter";
+            this.tpPresenter.UseVisualStyleBackColor = true;
             // 
             // dgvMedicamentPresenter
             // 
@@ -109,10 +148,68 @@
             this.dgvMedicamentPresenter.TabIndex = 11;
             this.dgvMedicamentPresenter.CurrentCellChanged += new System.EventHandler(this.dgvMedicament_CurrentCellChanged);
             // 
+            // tpOffrir
+            // 
+            this.tpOffrir.Controls.Add(this.button1);
+            this.tpOffrir.Controls.Add(this.button2);
+            this.tpOffrir.Controls.Add(this.button3);
+            this.tpOffrir.Controls.Add(this.dgvMedicamentOffrir);
+            this.tpOffrir.Location = new System.Drawing.Point(4, 22);
+            this.tpOffrir.Name = "tpOffrir";
+            this.tpOffrir.Padding = new System.Windows.Forms.Padding(3);
+            this.tpOffrir.Size = new System.Drawing.Size(660, 364);
+            this.tpOffrir.TabIndex = 1;
+            this.tpOffrir.Text = "Offrir";
+            this.tpOffrir.UseVisualStyleBackColor = true;
+            // 
+            // dgvMedicamentOffrir
+            // 
+            this.dgvMedicamentOffrir.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMedicamentOffrir.Location = new System.Drawing.Point(6, 6);
+            this.dgvMedicamentOffrir.Name = "dgvMedicamentOffrir";
+            this.dgvMedicamentOffrir.Size = new System.Drawing.Size(648, 319);
+            this.dgvMedicamentOffrir.TabIndex = 22;
+            // 
+            // lblConfiance
+            // 
+            this.lblConfiance.AutoSize = true;
+            this.lblConfiance.Location = new System.Drawing.Point(231, 162);
+            this.lblConfiance.Name = "lblConfiance";
+            this.lblConfiance.Size = new System.Drawing.Size(13, 13);
+            this.lblConfiance.TabIndex = 18;
+            this.lblConfiance.Text = "5";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(56, 162);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(169, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "niveau de Confiance du medecin :";
+            // 
+            // trackBarConfiance
+            // 
+            this.trackBarConfiance.Location = new System.Drawing.Point(59, 178);
+            this.trackBarConfiance.Name = "trackBarConfiance";
+            this.trackBarConfiance.Size = new System.Drawing.Size(256, 45);
+            this.trackBarConfiance.TabIndex = 16;
+            this.trackBarConfiance.Value = 5;
+            this.trackBarConfiance.ValueChanged += new System.EventHandler(this.trackBarConfiance_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(361, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Medicament :";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 58);
+            this.label3.Location = new System.Drawing.Point(46, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 13;
@@ -130,7 +227,7 @@
             // cbxMedecin
             // 
             this.cbxMedecin.FormattingEnabled = true;
-            this.cbxMedecin.Location = new System.Drawing.Point(74, 54);
+            this.cbxMedecin.Location = new System.Drawing.Point(106, 57);
             this.cbxMedecin.Name = "cbxMedecin";
             this.cbxMedecin.Size = new System.Drawing.Size(200, 21);
             this.cbxMedecin.TabIndex = 12;
@@ -154,7 +251,7 @@
             // 
             // BtnValider
             // 
-            this.BtnValider.Location = new System.Drawing.Point(59, 400);
+            this.BtnValider.Location = new System.Drawing.Point(59, 412);
             this.BtnValider.Name = "BtnValider";
             this.BtnValider.Size = new System.Drawing.Size(75, 23);
             this.BtnValider.TabIndex = 5;
@@ -164,7 +261,7 @@
             // 
             // BtnAnnuler
             // 
-            this.BtnAnnuler.Location = new System.Drawing.Point(140, 400);
+            this.BtnAnnuler.Location = new System.Drawing.Point(357, 412);
             this.BtnAnnuler.Name = "BtnAnnuler";
             this.BtnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.BtnAnnuler.TabIndex = 6;
@@ -173,9 +270,9 @@
             // 
             // RtbBilan
             // 
-            this.RtbBilan.Location = new System.Drawing.Point(59, 222);
+            this.RtbBilan.Location = new System.Drawing.Point(59, 231);
             this.RtbBilan.Name = "RtbBilan";
-            this.RtbBilan.Size = new System.Drawing.Size(373, 138);
+            this.RtbBilan.Size = new System.Drawing.Size(373, 158);
             this.RtbBilan.TabIndex = 9;
             this.RtbBilan.Text = "";
             // 
@@ -186,106 +283,79 @@
             this.DtpDate.Size = new System.Drawing.Size(200, 20);
             this.DtpDate.TabIndex = 7;
             // 
-            // lbltest
+            // btnAjouter
             // 
-            this.lbltest.AutoSize = true;
-            this.lbltest.Location = new System.Drawing.Point(361, 477);
-            this.lbltest.Name = "lbltest";
-            this.lbltest.Size = new System.Drawing.Size(35, 13);
-            this.lbltest.TabIndex = 15;
-            this.lbltest.Text = "label5";
+            this.btnAjouter.Location = new System.Drawing.Point(6, 331);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(75, 23);
+            this.btnAjouter.TabIndex = 22;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = true;
             // 
-            // trackBarConfiance
+            // BtnSupprimer
             // 
-            this.trackBarConfiance.Location = new System.Drawing.Point(59, 178);
-            this.trackBarConfiance.Name = "trackBarConfiance";
-            this.trackBarConfiance.Size = new System.Drawing.Size(256, 45);
-            this.trackBarConfiance.TabIndex = 16;
+            this.BtnSupprimer.ForeColor = System.Drawing.Color.Red;
+            this.BtnSupprimer.Location = new System.Drawing.Point(579, 331);
+            this.BtnSupprimer.Name = "BtnSupprimer";
+            this.BtnSupprimer.Size = new System.Drawing.Size(75, 23);
+            this.BtnSupprimer.TabIndex = 23;
+            this.BtnSupprimer.Text = "Supprimer";
+            this.BtnSupprimer.UseVisualStyleBackColor = true;
             // 
-            // lblConfiance
+            // btnModifier
             // 
-            this.lblConfiance.AutoSize = true;
-            this.lblConfiance.Location = new System.Drawing.Point(56, 162);
-            this.lblConfiance.Name = "lblConfiance";
-            this.lblConfiance.Size = new System.Drawing.Size(169, 13);
-            this.lblConfiance.TabIndex = 17;
-            this.lblConfiance.Text = "niveau de Confiance du medecin :";
+            this.btnModifier.Location = new System.Drawing.Point(87, 331);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(75, 23);
+            this.btnModifier.TabIndex = 24;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
             // 
-            // lblConfianceValue
+            // button1
             // 
-            this.lblConfianceValue.AutoSize = true;
-            this.lblConfianceValue.Location = new System.Drawing.Point(231, 162);
-            this.lblConfianceValue.Name = "lblConfianceValue";
-            this.lblConfianceValue.Size = new System.Drawing.Size(13, 13);
-            this.lblConfianceValue.TabIndex = 18;
-            this.lblConfianceValue.Text = "0";
+            this.button1.Location = new System.Drawing.Point(87, 331);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Modifier";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // tcMedicament
+            // button2
             // 
-            this.tcMedicament.Controls.Add(this.tpPresenter);
-            this.tcMedicament.Controls.Add(this.tpOffrir);
-            this.tcMedicament.Location = new System.Drawing.Point(443, 3);
-            this.tcMedicament.Name = "tcMedicament";
-            this.tcMedicament.SelectedIndex = 0;
-            this.tcMedicament.Size = new System.Drawing.Size(668, 390);
-            this.tcMedicament.TabIndex = 19;
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(579, 331);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Supprimer";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // tpPresenter
+            // button3
             // 
-            this.tpPresenter.Controls.Add(this.dgvMedicamentPresenter);
-            this.tpPresenter.Location = new System.Drawing.Point(4, 22);
-            this.tpPresenter.Name = "tpPresenter";
-            this.tpPresenter.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPresenter.Size = new System.Drawing.Size(660, 364);
-            this.tpPresenter.TabIndex = 0;
-            this.tpPresenter.Text = "Présenter";
-            this.tpPresenter.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(6, 331);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "Ajouter";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // tpOffrir
+            // label6
             // 
-            this.tpOffrir.Controls.Add(this.dgvMedicamentOffrir);
-            this.tpOffrir.Location = new System.Drawing.Point(4, 22);
-            this.tpOffrir.Name = "tpOffrir";
-            this.tpOffrir.Padding = new System.Windows.Forms.Padding(3);
-            this.tpOffrir.Size = new System.Drawing.Size(660, 364);
-            this.tpOffrir.TabIndex = 1;
-            this.tpOffrir.Text = "Offrir";
-            this.tpOffrir.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(32, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Date :";
             // 
-            // checkBoxRemplacent
+            // btnReset
             // 
-            this.checkBoxRemplacent.AutoSize = true;
-            this.checkBoxRemplacent.Location = new System.Drawing.Point(280, 58);
-            this.checkBoxRemplacent.Name = "checkBoxRemplacent";
-            this.checkBoxRemplacent.Size = new System.Drawing.Size(83, 17);
-            this.checkBoxRemplacent.TabIndex = 0;
-            this.checkBoxRemplacent.Text = "Remplacent";
-            this.checkBoxRemplacent.UseVisualStyleBackColor = true;
-            this.checkBoxRemplacent.CheckedChanged += new System.EventHandler(this.checkBoxRemplacent_CheckedChanged);
-            // 
-            // tbRemplacent
-            // 
-            this.tbRemplacent.Location = new System.Drawing.Point(74, 81);
-            this.tbRemplacent.Name = "tbRemplacent";
-            this.tbRemplacent.Size = new System.Drawing.Size(200, 20);
-            this.tbRemplacent.TabIndex = 20;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 84);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Remplacent :";
-            // 
-            // dgvMedicamentOffrir
-            // 
-            this.dgvMedicamentOffrir.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedicamentOffrir.Location = new System.Drawing.Point(6, 6);
-            this.dgvMedicamentOffrir.Name = "dgvMedicamentOffrir";
-            this.dgvMedicamentOffrir.Size = new System.Drawing.Size(648, 319);
-            this.dgvMedicamentOffrir.TabIndex = 22;
+            this.btnReset.Location = new System.Drawing.Point(276, 412);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 23;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
             // 
             // FM2Rapport
             // 
@@ -298,14 +368,14 @@
             this.Load += new System.EventHandler(this.FM2Rapport_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentPresenter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMedecin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsMotif)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarConfiance)).EndInit();
             this.tcMedicament.ResumeLayout(false);
             this.tpPresenter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentPresenter)).EndInit();
             this.tpOffrir.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicamentOffrir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarConfiance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMedecin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsMotif)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -326,16 +396,22 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.BindingSource bsMotif;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lbltest;
         private System.Windows.Forms.TabControl tcMedicament;
         private System.Windows.Forms.TabPage tpPresenter;
         private System.Windows.Forms.TabPage tpOffrir;
-        private System.Windows.Forms.Label lblConfianceValue;
         private System.Windows.Forms.Label lblConfiance;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TrackBar trackBarConfiance;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbRemplacent;
         private System.Windows.Forms.CheckBox checkBoxRemplacent;
         private System.Windows.Forms.DataGridView dgvMedicamentOffrir;
+        private System.Windows.Forms.Button btnModifier;
+        private System.Windows.Forms.Button BtnSupprimer;
+        private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnReset;
     }
 }

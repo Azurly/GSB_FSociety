@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mdlGSBSociety.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="mdlGSBSociety.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Etat">
           <Key>
             <PropertyRef Name="id" />
@@ -37,7 +37,9 @@
           </Key>
           <Property Name="id" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="libelle" Type="char" MaxLength="20" />
-          <Property Name="montant" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="montant_unitaire" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="quantité" Type="int" />
+          <Property Name="montant_total" Type="float" />
         </EntityType>
         <EntityType Name="Laboratoire">
           <Key>
@@ -107,6 +109,15 @@
           <Property Name="idMedicament" Type="char" MaxLength="12" Nullable="false" />
           <Property Name="quantite" Type="int" />
         </EntityType>
+        <EntityType Name="PRESENTER">
+          <Key>
+            <PropertyRef Name="idRapport" />
+            <PropertyRef Name="idMedicament" />
+          </Key>
+          <Property Name="idRapport" Type="int" Nullable="false" />
+          <Property Name="idMedicament" Type="char" MaxLength="12" Nullable="false" />
+          <Property Name="quantite" Type="int" />
+        </EntityType>
         <EntityType Name="RAPPORT">
           <Key>
             <PropertyRef Name="idRapport" />
@@ -117,6 +128,8 @@
           <Property Name="bilan" Type="varchar" MaxLength="64" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="idMedecin" Type="int" Nullable="false" />
+          <Property Name="niveauConfiance" Type="int" />
+          <Property Name="nomRemplacent" Type="varchar" MaxLength="64" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -349,6 +362,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="presenter_fk1">
+          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="1" />
+          <End Role="PRESENTER" Type="Self.PRESENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAPPORT">
+              <PropertyRef Name="idRapport" />
+            </Principal>
+            <Dependent Role="PRESENTER">
+              <PropertyRef Name="idRapport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="presenter_fk2">
+          <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="1" />
+          <End Role="PRESENTER" Type="Self.PRESENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENT">
+              <PropertyRef Name="idMedicament" />
+            </Principal>
+            <Dependent Role="PRESENTER">
+              <PropertyRef Name="idMedicament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="rapport_fk1">
           <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
           <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
@@ -397,6 +434,7 @@
           <EntitySet Name="MEDICAMENT" EntityType="Self.MEDICAMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MOTIF" EntityType="Self.MOTIF" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OFFRIR" EntityType="Self.OFFRIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRESENTER" EntityType="Self.PRESENTER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RAPPORT" EntityType="Self.RAPPORT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Secteur" EntityType="Self.Secteur" Schema="dbo" store:Type="Tables" />
@@ -463,6 +501,14 @@
             <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
             <End Role="OFFRIR" EntitySet="OFFRIR" />
           </AssociationSet>
+          <AssociationSet Name="presenter_fk1" Association="Self.presenter_fk1">
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+            <End Role="PRESENTER" EntitySet="PRESENTER" />
+          </AssociationSet>
+          <AssociationSet Name="presenter_fk2" Association="Self.presenter_fk2">
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+            <End Role="PRESENTER" EntitySet="PRESENTER" />
+          </AssociationSet>
           <AssociationSet Name="rapport_fk1" Association="Self.rapport_fk1">
             <End Role="Visiteur" EntitySet="Visiteur" />
             <End Role="RAPPORT" EntitySet="RAPPORT" />
@@ -476,8 +522,7 @@
             <End Role="RAPPORT" EntitySet="RAPPORT" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="mdlGSBSociety" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -521,6 +566,9 @@
           <Property Name="libelle" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="montant" Type="Decimal" Precision="5" Scale="2" />
           <NavigationProperty Name="LigneFraisForfait" Relationship="Self.FK__LigneFrai__idFra__286302EC" FromRole="FraisForfait" ToRole="LigneFraisForfait" />
+          <Property Name="quantité" Type="Int32" />
+          <Property Name="montant_unitaire" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="montant_total" Type="Double" />
         </EntityType>
         <EntityType Name="Laboratoire">
           <Key>
@@ -581,6 +629,7 @@
           <Property Name="contreIndications" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="FAMILLE" Relationship="Self.medicament_fk" FromRole="MEDICAMENT" ToRole="FAMILLE" />
           <NavigationProperty Name="OFFRIR" Relationship="Self.offrir_fk2" FromRole="MEDICAMENT" ToRole="OFFRIR" />
+          <NavigationProperty Name="PRESENTER" Relationship="mdlGSBSociety.presenter_fk2" FromRole="MEDICAMENT" ToRole="PRESENTER" />
         </EntityType>
         <EntityType Name="MOTIF">
           <Key>
@@ -615,6 +664,9 @@
           <NavigationProperty Name="MOTIF" Relationship="Self.rapport_fk3" FromRole="RAPPORT" ToRole="MOTIF" />
           <NavigationProperty Name="OFFRIR" Relationship="Self.offrir_fk1" FromRole="RAPPORT" ToRole="OFFRIR" />
           <NavigationProperty Name="Visiteur" Relationship="Self.rapport_fk1" FromRole="RAPPORT" ToRole="Visiteur" />
+          <Property Name="niveauConfiance" Type="Int32" />
+          <Property Name="nomRemplacent" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRESENTER" Relationship="mdlGSBSociety.presenter_fk1" FromRole="RAPPORT" ToRole="PRESENTER" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -952,7 +1004,51 @@
             <End Role="Region" EntitySet="Region" />
             <End Role="Visiteur" EntitySet="Visiteur" />
           </AssociationSet>
+          <EntitySet Name="PRESENTER" EntityType="mdlGSBSociety.PRESENTER" />
+          <AssociationSet Name="presenter_fk2" Association="mdlGSBSociety.presenter_fk2">
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+            <End Role="PRESENTER" EntitySet="PRESENTER" />
+          </AssociationSet>
+          <AssociationSet Name="presenter_fk1" Association="mdlGSBSociety.presenter_fk1">
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+            <End Role="PRESENTER" EntitySet="PRESENTER" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="PRESENTER">
+          <Key>
+            <PropertyRef Name="idRapport" />
+            <PropertyRef Name="idMedicament" />
+          </Key>
+          <Property Name="idRapport" Type="Int32" Nullable="false" />
+          <Property Name="idMedicament" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="false" />
+          <Property Name="quantite" Type="Int32" />
+          <NavigationProperty Name="MEDICAMENT" Relationship="mdlGSBSociety.presenter_fk2" FromRole="PRESENTER" ToRole="MEDICAMENT" />
+          <NavigationProperty Name="RAPPORT" Relationship="mdlGSBSociety.presenter_fk1" FromRole="PRESENTER" ToRole="RAPPORT" />
+        </EntityType>
+        <Association Name="presenter_fk2">
+          <End Type="mdlGSBSociety.MEDICAMENT" Role="MEDICAMENT" Multiplicity="1" />
+          <End Type="mdlGSBSociety.PRESENTER" Role="PRESENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENT">
+              <PropertyRef Name="idMedicament" />
+            </Principal>
+            <Dependent Role="PRESENTER">
+              <PropertyRef Name="idMedicament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="presenter_fk1">
+          <End Type="mdlGSBSociety.RAPPORT" Role="RAPPORT" Multiplicity="1" />
+          <End Type="mdlGSBSociety.PRESENTER" Role="PRESENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAPPORT">
+              <PropertyRef Name="idRapport" />
+            </Principal>
+            <Dependent Role="PRESENTER">
+              <PropertyRef Name="idRapport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -990,9 +1086,11 @@
           <EntitySetMapping Name="FraisForfait">
             <EntityTypeMapping TypeName="mdlGSBSociety.FraisForfait">
               <MappingFragment StoreEntitySet="FraisForfait">
+                <ScalarProperty Name="montant_total" ColumnName="montant_total" />
+                <ScalarProperty Name="montant_unitaire" ColumnName="montant_unitaire" />
+                <ScalarProperty Name="quantité" ColumnName="quantité" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="libelle" ColumnName="libelle" />
-                <ScalarProperty Name="montant" ColumnName="montant" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1071,6 +1169,8 @@
           <EntitySetMapping Name="RAPPORT">
             <EntityTypeMapping TypeName="mdlGSBSociety.RAPPORT">
               <MappingFragment StoreEntitySet="RAPPORT">
+                <ScalarProperty Name="nomRemplacent" ColumnName="nomRemplacent" />
+                <ScalarProperty Name="niveauConfiance" ColumnName="niveauConfiance" />
                 <ScalarProperty Name="idRapport" ColumnName="idRapport" />
                 <ScalarProperty Name="dateRapport" ColumnName="dateRapport" />
                 <ScalarProperty Name="idMotif" ColumnName="idMotif" />
@@ -1131,6 +1231,15 @@
               <ScalarProperty Name="idVisiteur" ColumnName="idVisiteur" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="PRESENTER">
+            <EntityTypeMapping TypeName="mdlGSBSociety.PRESENTER">
+              <MappingFragment StoreEntitySet="PRESENTER">
+                <ScalarProperty Name="quantite" ColumnName="quantite" />
+                <ScalarProperty Name="idMedicament" ColumnName="idMedicament" />
+                <ScalarProperty Name="idRapport" ColumnName="idRapport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
