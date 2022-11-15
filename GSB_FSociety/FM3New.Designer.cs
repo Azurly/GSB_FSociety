@@ -57,8 +57,9 @@
             this.dgvHorsForfait = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.bdsHorsForfait = new System.Windows.Forms.BindingSource(this.components);
-            this.bdsHotellerie = new System.Windows.Forms.BindingSource(this.components);
-            this.bdsKilometrage = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsFraisForfaitH = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsLigneFraisForfait = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsFraisForfaitK = new System.Windows.Forms.BindingSource(this.components);
             this.tabControlRemboursement.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHotel)).BeginInit();
@@ -67,8 +68,9 @@
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHorsForfait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsHorsForfait)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsHotellerie)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKilometrage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsFraisForfaitH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLigneFraisForfait)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsFraisForfaitK)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlRemboursement
@@ -99,6 +101,7 @@
             // 
             this.dgvHotel.AllowUserToAddRows = false;
             this.dgvHotel.AllowUserToDeleteRows = false;
+            this.dgvHotel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHotel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHotel.Location = new System.Drawing.Point(23, 51);
             this.dgvHotel.Name = "dgvHotel";
@@ -140,6 +143,9 @@
             // 
             // dgvKilo
             // 
+            this.dgvKilo.AllowUserToAddRows = false;
+            this.dgvKilo.AllowUserToDeleteRows = false;
+            this.dgvKilo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKilo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKilo.Location = new System.Drawing.Point(20, 207);
             this.dgvKilo.Name = "dgvKilo";
@@ -327,6 +333,7 @@
             // 
             // dgvHorsForfait
             // 
+            this.dgvHorsForfait.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHorsForfait.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHorsForfait.Location = new System.Drawing.Point(15, 47);
             this.dgvHorsForfait.Name = "dgvHorsForfait";
@@ -362,8 +369,9 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHorsForfait)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsHorsForfait)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsHotellerie)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsKilometrage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsFraisForfaitH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLigneFraisForfait)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsFraisForfaitK)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -398,7 +406,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvHorsForfait;
         private System.Windows.Forms.BindingSource bdsHorsForfait;
-        private System.Windows.Forms.BindingSource bdsHotellerie;
-        private System.Windows.Forms.BindingSource bdsKilometrage;
+        private System.Windows.Forms.BindingSource bdsFraisForfaitH;
+        private System.Windows.Forms.BindingSource bdsLigneFraisForfait;
+        private System.Windows.Forms.BindingSource bdsFraisForfaitK;
     }
 }

@@ -19,10 +19,14 @@ namespace GSB_FSociety
 
         private void FM3New_Load(object sender, EventArgs e)
         {
-            bdsHotellerie.DataSource = ModelMission3.getFraisForfaitHotel();
-            dgvHotel.DataSource = bdsHotellerie;
-            dgvHotel.Columns[4].Visible = false;
+            bdsFraisForfaitH.DataSource = ModelMission3.getFraisForfaitHotel();
+            bdsLigneFraisForfait.DataSource = ModelGSB.GetListeLigneFraisForfait();
+            dgvHotel.DataSource = bdsFraisForfaitH;
+            dgvHotel.Columns[3].Visible = false;
             dgvHotel.Columns[0].Visible = false;
+            bdsFraisForfaitK.DataSource = ModelMission3.getFraisForfaitKilometrage();
+            dgvKilo.DataSource = bdsFraisForfaitK;
+            dgvKilo.Columns[3].Visible = false;
         }
     }
 }

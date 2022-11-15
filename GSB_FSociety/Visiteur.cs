@@ -34,6 +34,8 @@ namespace GSB_FSociety
         public string dateEmbauche { get; set; }
         public string identifiant { get; set; }
         public string password { get; set; }
+        public Nullable<int> nbessais { get; set; }
+        public Nullable<bool> actif { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<fichefrais> fichefrais { get; set; }

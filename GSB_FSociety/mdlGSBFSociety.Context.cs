@@ -36,6 +36,7 @@ namespace GSB_FSociety
         public virtual DbSet<MEDICAMENT> MEDICAMENT { get; set; }
         public virtual DbSet<MOTIF> MOTIF { get; set; }
         public virtual DbSet<OFFRIR> OFFRIR { get; set; }
+        public virtual DbSet<PRESENTER> PRESENTER { get; set; }
         public virtual DbSet<RAPPORT> RAPPORT { get; set; }
         public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<Secteur> Secteur { get; set; }

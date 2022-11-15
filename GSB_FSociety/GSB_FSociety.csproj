@@ -140,6 +140,9 @@
     <Compile Include="OFFRIR.cs">
       <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
     </Compile>
+    <Compile Include="PRESENTER.cs">
+      <DependentUpon>mdlGSBFSociety.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RAPPORT.cs">
