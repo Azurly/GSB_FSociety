@@ -19,14 +19,13 @@ namespace GSB_FSociety
 
         private void FM3New_Load(object sender, EventArgs e)
         {
-            bdsFraisForfaitH.DataSource = ModelMission3.getFraisForfaitHotel();
-            bdsLigneFraisForfait.DataSource = ModelGSB.GetListeLigneFraisForfait();
+            string date = ModelMission3.getMoisNewFiche( ModelMission3.mois , ModelMission3.annee);
+            // faire une vérrif de date si il n'existe déja pas un doublon dans la BD !
+            bdsFraisForfaitH.DataSource = ModelMission3.getQteH( "a13" , date );
             dgvHotel.DataSource = bdsFraisForfaitH;
-            dgvHotel.Columns[3].Visible = false;
-            dgvHotel.Columns[0].Visible = false;
+
             bdsFraisForfaitK.DataSource = ModelMission3.getFraisForfaitKilometrage();
             dgvKilo.DataSource = bdsFraisForfaitK;
-            dgvKilo.Columns[3].Visible = false;
         }
     }
 }

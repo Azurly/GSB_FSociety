@@ -54,9 +54,8 @@
             // 
             this.dgvFicheForfait.AllowUserToAddRows = false;
             this.dgvFicheForfait.AllowUserToDeleteRows = false;
-            this.dgvFicheForfait.AutoGenerateColumns = false;
+            this.dgvFicheForfait.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFicheForfait.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFicheForfait.DataSource = this.bsFicheRemboursement;
             this.dgvFicheForfait.Location = new System.Drawing.Point(12, 128);
             this.dgvFicheForfait.Name = "dgvFicheForfait";
             this.dgvFicheForfait.ReadOnly = true;
